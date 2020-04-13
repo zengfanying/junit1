@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- logback整合日志-->
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+    <!-- ConsoleAppender 控制台输出日志 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 对日志进行格式化 -->
+        <encoder>
+            <pattern> %5p [%t] - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 就是这个监控了mybatis日志输出，配合上面的“dao” -->
+    <logger name="mybatis.sql" level="DEBUG"/>
+
+    <root level="warn">
+        <!-- 控制台输出 -->
+        <appender-ref ref="STDOUT" />
+        <!--<!– 文件输出 –>-->
+
+
+    </root>
+
+</configuration>
